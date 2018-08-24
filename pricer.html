@@ -38,18 +38,25 @@
                     </div>  
                     <div class="Row" data-bind="visible:showItem()">
                             <div class="Cell">
-                                <span>במבה</span>
+                                <span data-bind="text:item()"></span>
                             </div>    
                     </div>   
                     <div class="Row" data-bind="visible:showItem()">
                             <div class="Cell">
-                                <span id="price"  data-bind="text:price() ,css: clubprice()> 0 ? 'strike' : ''"></span>
-                                <span id="clubprice" data-bind="text:clubprice()"></span>
+                                <span>₪</span>
+                                <span id="price"  data-bind="text:price() ,css: clubprice()> 0 && clubprice()<price() ? 'strike' : ''"></span>
+                                <span data-bind="visible:clubprice()>0 && clubprice()<price()">₪</span>
+                                <span id="clubprice" data-bind="text:clubprice(),visible:clubprice()>0 && clubprice()<price()"></span>
                             </div>    
                     </div>      
                     <div class="Row" data-bind="visible:showItem()">
                             <div class="Cell">
-                                <span data-bind="text:deal()">במבה</span>
+                                <span data-bind="text:unitprice()"></span>
+                            </div>    
+                    </div>                     
+                    <div class="Row" data-bind="visible:showItem()">
+                            <div class="Cell">
+                                <span data-bind="text:deal()"></span>
                             </div>    
                     </div>                                      
                     <div class="Row" data-bind="visible:showError()">

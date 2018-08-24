@@ -7,6 +7,8 @@ function AppViewModel() {
     this.price = ko.observable("");
     this.clubprice = ko.observable("");
     this.deal = ko.observable("");
+    this.unitprice = ko.observable("");
+    this.item = ko.observable("");
 
     this.DisplayPage = function(sError,sItem,sScan){
         this.showScan(sScan);
@@ -21,8 +23,10 @@ function AppViewModel() {
             this.DisplayPage(true,false,false);
         else
         {
-            this.price("23.15");
-            this.clubprice("22.15");
+            this.price(23.15);
+            this.clubprice(23.15);
+            this.item("במבה");
+            this.unitprice("מאה גרם/1.2");
             this.deal("קנה 2 קבל אחד במתנה");
             this.DisplayPage(false,true,false);
         }
