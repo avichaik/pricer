@@ -10,6 +10,8 @@ function AppViewModel() {
     this.unitprice = ko.observable("");
     this.item = ko.observable("");
 
+
+
     this.DisplayPage = function(sError,sItem,sScan){
         this.showScan(sScan);
         this.showItem (sItem);
@@ -34,8 +36,26 @@ function AppViewModel() {
             
         
     };
+
+    this.findItem = function(){
+        
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+        .then(function(response) {
+            if (!response.ok) {
+                console.error(response);
+            }
+            return response;
+        }).then(function(response) {
+            this.displayItem();
+        }).catch(function(error) {
+            console.log(error);
+        });
+
+    };
+
     this.onEnter = function(d,e){
-    e.keyCode === 13 && this.displayItem();  
+    if(e.keyCode === 13 )
+    this.displayItem();
     return true;
 }
 }
