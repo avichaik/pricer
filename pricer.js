@@ -3,16 +3,22 @@ function AppViewModel() {
     this.showScan = ko.observable(true);
     this.showItem = ko.observable(false);
     this.showError = ko.observable(false);
-    
+    this.DisplayPage = function(sError,sItem,sScan){
+        this.showScan(sScan);
+        this.showItem (sItem);
+        this.showError(sError);
+        
+    };
+
     this.displayItem = function(){
         console.log(this.barcode());
-        if(this.barcode="xxx")
-        {
-            this.showError(!this.showError());
-            return;
-        }
-        this.showItem(!this.showItem());
-        this.showScan(!this.showScan());
+        if(this.barcode()=="xxx")      
+            this.DisplayPage(true,false,false);
+        else
+            this.DisplayPage(false,true,false);
+        setTimeout(function(){ location.reload(); }, 5000);
+            
+        
     };
     this.onEnter = function(d,e){
     e.keyCode === 13 && this.displayItem();  
