@@ -1,0 +1,45 @@
+.Table
+    {
+        display: table;
+        width: 80%;
+        padding: 5%;
+        
+        
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+        
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+        
+        
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width:0;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+        vertical-align: center;
+        padding: 5px;
+        
+
+    
+    }

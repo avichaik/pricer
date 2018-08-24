@@ -1,0 +1,90 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="style.css">
+            <script src="knockout-latest.js">
+            </script>
+    
+    </head>
+    <body >
+        
+            <div class="Table" >
+                    <div class="Title">
+                        <img src="logo.jpg"/>
+                    </div>
+
+                    <div class="Row" data-bind="visible:showScan()">
+                        <div class="Cell" align="center">
+                            
+                            <span >
+                            
+                                שלום<br/><br/>
+
+                        לסריקה סרוק במקום המיועד   <br/><br/>
+
+                                תודה
+                              
+                                 </span>
+                            
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="Row" data-bind="visible:showScan()">
+                            <div class="Cell">
+                                    <img src="arrow.jpg" height="40px" width="40px"/>
+                            </div>
+                    </div>  
+                    <div class="Row" data-bind="visible:showItem()">
+                            <div class="Cell">
+                                <span>במבה</span>
+                            </div>    
+                    </div>   
+                    <div class="Row" data-bind="visible:showError()">
+                            <div class="Cell">
+                                <span>המוצר אינו נמצא. סרוק שנית או פנה לאחראי\ת</span>
+                            </div>    
+                    </div>   
+                    <div class="Row">
+                        <div class="Cell">
+                            <p><input type="text"
+                                data-bind="textInput : barcode, 
+                                           event: {keypress: onEnter}" >
+                         </input></p>
+                        </div>
+
+                    </div>
+                </div>
+    </body>
+    
+
+</html>
+<script>
+function AppViewModel() {
+    this.barcode = ko.observable("");
+    this.showScan = ko.observable(true);
+    this.showItem = ko.observable(false);
+    this.showError = ko.observable(false);
+    
+    this.displayItem = function(){
+        console.log(this.barcode());
+        if(this.barcode="xxx")
+        {
+            this.showError(!this.showError());
+            return;
+        }
+        this.showItem(!this.showItem());
+        this.showScan(!this.showScan());
+    };
+    this.onEnter = function(d,e){
+    e.keyCode === 13 && this.displayItem();  
+    return true;
+}
+}
+
+
+ko.applyBindings(new AppViewModel());
+
+
+</script>
