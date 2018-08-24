@@ -3,6 +3,11 @@ function AppViewModel() {
     this.showScan = ko.observable(true);
     this.showItem = ko.observable(false);
     this.showError = ko.observable(false);
+
+    this.price = ko.observable("");
+    this.clubprice = ko.observable("");
+    this.deal = ko.observable("");
+
     this.DisplayPage = function(sError,sItem,sScan){
         this.showScan(sScan);
         this.showItem (sItem);
@@ -15,7 +20,12 @@ function AppViewModel() {
         if(this.barcode()=="xxx")      
             this.DisplayPage(true,false,false);
         else
+        {
+            this.price("23.15");
+            this.clubprice("22.15");
+            this.deal("קנה 2 קבל אחד במתנה");
             this.DisplayPage(false,true,false);
+        }
         setTimeout(function(){ location.reload(); }, 5000);
             
         

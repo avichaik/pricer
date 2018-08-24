@@ -41,6 +41,17 @@
                                 <span>במבה</span>
                             </div>    
                     </div>   
+                    <div class="Row" data-bind="visible:showItem()">
+                            <div class="Cell">
+                                <span id="price"  data-bind="text:price() ,css: clubprice()> 0 ? 'strike' : ''"></span>
+                                <span id="clubprice" data-bind="text:clubprice()"></span>
+                            </div>    
+                    </div>      
+                    <div class="Row" data-bind="visible:showItem()">
+                            <div class="Cell">
+                                <span data-bind="text:deal()">במבה</span>
+                            </div>    
+                    </div>                                      
                     <div class="Row" data-bind="visible:showError()">
                             <div class="Cell">
                                 <span>המוצר אינו נמצא. סרוק שנית או פנה לאחראי\ת</span>

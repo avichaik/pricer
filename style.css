@@ -20,6 +20,10 @@
         font-weight: bold;
         text-align: center;
     }
+    .strike
+    {
+        text-decoration: line-through;
+    }
     .Row
     {
         display: table-row;
