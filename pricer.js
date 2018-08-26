@@ -41,12 +41,14 @@ function AppViewModel() {
         
         fetch("https://jsonplaceholder.typicode.com/todos/1")
         .then(function(response) {
+            console.error(response);
             if (!response.ok) {
                 console.error(response);
             }
             return response;
         }).then(function(response) {
-            this.displayItem();
+            console.log(response);
+            //this.displayItem();
         }).catch(function(error) {
             console.log(error);
         });
@@ -55,7 +57,7 @@ function AppViewModel() {
 
     this.onEnter = function(d,e){
     if(e.keyCode === 13 )
-    this.displayItem();
+    this.findItem();
     return true;
 }
 }
